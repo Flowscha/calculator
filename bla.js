@@ -35,9 +35,9 @@ function calculation(a,b, operator) {
 }
 
 function removeTransistion(e) {
-    if (e.propertyName !== "transform") return;
-    this.classList.remove("active");
-  }
+  if (e.propertyName !== "transform") return;
+  this.classList.remove("active");
+}
 
 function zahlKlick(e) {
     const key = document.querySelector(`.zahl[data-key="${e.key}"]`);
@@ -137,7 +137,6 @@ function operatorKlick(e) {
     if (isNaN(resultOutput) === true){
       inputNumbers.textContent = ""
       display.textContent = "";
-      location.reload();
     }else{
     display.textContent = `= ${resultOutput}`;
     }
