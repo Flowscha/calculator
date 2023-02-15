@@ -32,6 +32,7 @@ body {
     border: 1vh dotted lightgray;
     gap: 3vh;
     justify-content: center;
+    margin: 1vh;
 }
 
 .bottom {

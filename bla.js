@@ -45,6 +45,17 @@ function zahlKlick(e) {
     inputNumbers.textContent = `${input2} ${operatorInput} ${input1}`;
   };
 
+  function zahlMaus(e) {
+    const key = document.querySelector(`.zahl[data-key="${e.key}"]`);
+    if (key === null){
+        return;
+    }
+    key.classList.add("active");
+    input1 += parseInt(key.textContent);
+    
+    inputNumbers.textContent = `${input2} ${operatorInput} ${input1}`;
+  };
+
 function operatorKlick(e) {
   const key = document.querySelector(`.operator[data-key="${e.key}"]`);
   if (key === null){
@@ -77,8 +88,13 @@ function operatorKlick(e) {
       resultOutput = Number(resultOutput).toFixed(4);
       resultOutput = parseFloat(resultOutput);
     }
-    
+    if (isNaN(resultOutput) === true){
+      inputNumbers.textContent = "";
+      display.textContent = "";
+      location.reload();
+    }else{
     display.textContent = `= ${resultOutput}`;
+    }
   });
   
   
