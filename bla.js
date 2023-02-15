@@ -2,8 +2,12 @@ const buttons = document.querySelectorAll("button");
 const zahlen = document.querySelectorAll(".zahl");
 const operatoren = document.querySelectorAll(".operator");
 const display = document.querySelector(".outputNumbers");
-const inputNumbers = document.querySelector(".inputNumbers")
-const result = document.querySelector(`.operator[data-key="Enter"]`)
+const inputNumbers = document.querySelector(".inputNumbers");
+const result = document.querySelector(`.operator[data-key="Enter"]`);
+const kitty = document.querySelector("#kitty");
+
+const colorOne = document.querySelectorAll(".box, button, .bottom");
+const colorTwo = document.querySelectorAll(".display, .operatoren, .zahlen");
 
 let input1 = "";
 let input2 = "";
@@ -139,4 +143,10 @@ function operatorKlick(e) {
     }
   });
   
-  
+ 
+  //color-changer
+  kitty.addEventListener("click", () => {
+  colorTwo.forEach(color => color.classList.toggle("styleKitty2"));
+  colorOne.forEach(color => color.classList.toggle("styleKitty1"));
+  });
+ 

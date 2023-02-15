@@ -6,9 +6,25 @@
 body {
     display: flex;
     justify-content: center;
-    margin-top: 10vh;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
 }
 
+#kitty {
+    align-self: flex-start;
+    font-size: 3vh;
+    width: 50vh;
+    height: 5vh;
+    margin: 3vh;
+    border-radius: 2vh;
+    border: solid black 0.5vh;
+    transition: 0;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 .box {
     background-color: rgb(133, 144, 140);
     width: 160vh;
@@ -85,4 +101,16 @@ button {
 .active {
     transform: scale(1.2);
     border: 1px solid black;
+  }
+
+  .styleKitty1{
+    color: white;
+    background-color:#F694C1;
+  }
+
+  .styleKitty2 {
+    background-color: pink;
+    border-color: white;
+    color: white;
+
   }
