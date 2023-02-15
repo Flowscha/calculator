@@ -28,9 +28,10 @@ body {
     justify-content: center;
     align-content: center;
     flex-wrap: wrap;
-    border-radius: 2vh;
+    border-radius: 3vh;
     border: 1vh dotted lightgray;
-    margin: 2vh;
+    gap: 3vh;
+    justify-content: center;
 }
 
 .bottom {
