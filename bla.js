@@ -5,9 +5,11 @@ const display = document.querySelector(".outputNumbers");
 const inputNumbers = document.querySelector(".inputNumbers");
 const result = document.querySelector(`.operator[data-key="Enter"]`);
 const kitty = document.querySelector("#kitty");
+const box = document.querySelector(".box");
 
 const colorOne = document.querySelectorAll(".box, button, .bottom");
 const colorTwo = document.querySelectorAll(".display, .operatoren, .zahlen");
+const colorOperatorZahl = document.querySelectorAll(".operatoren, .zahlen");
 
 let input1 = "";
 let input2 = "";
@@ -145,7 +147,13 @@ function operatorKlick(e) {
  
   //color-changer
   kitty.addEventListener("click", () => {
-  colorTwo.forEach(color => color.classList.toggle("styleKitty2"));
   colorOne.forEach(color => color.classList.toggle("styleKitty1"));
+  colorTwo.forEach(color => color.classList.toggle("styleKitty2"));
+  box.classList.toggle("styleKitty3");
+  if (kitty.textContent === "Sabines 'Hello Kitty' Mode"){
+    kitty.textContent = "✨🌙 Standard Mode 🌙✨"
+  }else{
+    kitty.textContent = "Sabines 'Hello Kitty' Mode"
+  };
   });
  

@@ -1,6 +1,7 @@
 * {
     font-size: 8vh;
     font-weight: 700;
+    color:black;
     font-family:Georgia, 'Times New Roman', Times, serif
 }
 body {
@@ -9,6 +10,7 @@ body {
     flex-direction: column;
     align-content: center;
     flex-wrap: wrap;
+    background-color: antiquewhite;
 }
 
 #kitty {
@@ -23,7 +25,7 @@ body {
 
 }
 .box {
-    background-color: rgb(133, 144, 140);
+    background-color: #8a2be2;
     width: 160vh;
     height: 80vh;
     border-radius: 2vh;
@@ -32,6 +34,11 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     border: solid black 0.5vh;
+    background-image: url('./luna.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+
 }
 
 .display {
@@ -46,6 +53,7 @@ body {
     gap: 3vh;
     justify-content: center;
     margin: 1vh;
+    opacity: 0.6;
 }
 
 .bottom {
@@ -65,6 +73,7 @@ body {
     padding: 1vh;
     gap: 1vh;
     margin: 1vh;
+    opacity: 0.5;
 }
 
 .zahl {
@@ -72,11 +81,12 @@ body {
     width: 30%;
     height: 22%;
     border-radius: 2vh;
-    background-color: rgb(133, 144, 140);
+    background-color: white;
     display: flex;
     justify-content: center;
     align-content: center;
     flex-wrap: wrap;
+    border: 1px solid black;
 }
 
 .operator {
@@ -84,11 +94,12 @@ body {
     width: 40%;
     height: 25%;
     border-radius: 2vh;
-    background-color: rgb(133, 144, 140);
+    background-color: white;
     display: flex;
     justify-content: center;
     align-content: center;
     flex-wrap: wrap;
+    border: 1px solid black;
 }
 
 button {
@@ -101,13 +112,25 @@ button {
   }
 
   .styleKitty1{
-    color: white;
-    background-color:#F694C1;
+    color: black;
+    
   }
 
   .styleKitty2 {
-    background-color: pink;
-    border-color: white;
-    color: white;
+    
+    border-color: violet;
+    color: black;
+    opacity: 0.7;
+  }
+
+  .styleKitty3 {
+    background-color:#F694C1;
+    background-image: url('./kitty.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  .styleKitty4 {
 
   }
