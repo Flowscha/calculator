@@ -55,7 +55,7 @@ function checkOperator(){
     display.textContent = "";
     inputNumbers.textContent = resultOutput;
     input1 = resultOutput;
-    input2 = resultOutput;
+    input2 = "";
     operatorInput= "";
     didResult = 0;
   }
@@ -143,7 +143,7 @@ function zahlKlick(e) {
     operatorInput = input;  
     input2 = input1;
     if (input2 === ""){
-      input2 = "0";
+    input2 = "0";
     };
     input1 = "";
     inputNumbers.textContent = `${input2} ${operatorInput}`;
@@ -151,6 +151,7 @@ function zahlKlick(e) {
 
 function operatorKlick(e) {
   checkDidResult();
+
   const key = document.querySelector(`.operator[data-key="${e.key}"]`);
   if (key === null){
       return;
@@ -170,12 +171,12 @@ function operatorKlick(e) {
     operatorInput= "";
     didResult = 0;
   }else{
+  checkOperator();
   operatorInput = e.key;  
   input2 = input1;
   if (input2 === ""){
     input2 = 0;
   };
-  checkOperator();
   input1 = "";
   inputNumbers.textContent = `${input2} ${operatorInput}`;
 }};
