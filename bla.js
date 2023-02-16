@@ -36,6 +36,14 @@ function calculation(a,b, operator) {
   }
 }
 
+function checkResult (){
+  if (display.textContent != ""){
+  console.log("voll")
+  }else{
+    console.log("leer")
+  }
+}
+
 function removeTransistion(e) {
   if (e.propertyName !== "transform") return;
   this.classList.remove("active");
@@ -74,18 +82,21 @@ function zahlKlick(e) {
       }
     }
     if (input === "clear"){
-      inputNumbers.textContent = "C L E A R"
+      inputNumbers.textContent = "";
       display.textContent = "";
-      location.reload();
+      input1 = "";
+      input2 ="";
+      operatorInput= "";
     }else{
     operatorInput = input;  
     input2 = input1;
     if (input2 === ""){
-      input2 = 0;
+      input2 = "0";
     };
+    checkResult();
     input1 = "";
     inputNumbers.textContent = `${input2} ${operatorInput}`;
-  }};
+  }}; 
 
 function operatorKlick(e) {
   const key = document.querySelector(`.operator[data-key="${e.key}"]`);
@@ -97,9 +108,11 @@ function operatorKlick(e) {
     return;
   }
   if (e.key === "Backspace"){
-    inputNumbers.textContent = "C L E A R"
+    inputNumbers.textContent = "";
     display.textContent = "";
-    location.reload();
+    input1 = "";
+    input2 ="";
+    operatorInput= "";
   }else{
   operatorInput = e.key;  
   input2 = input1;
@@ -131,6 +144,9 @@ function operatorKlick(e) {
   window.addEventListener('keydown', operatorKlick);
 
   result.addEventListener('transitionend', () => {
+    if (input1 === ""){
+      input1 = "0";
+    };
     resultOutput = calculation(input2, input1, operatorInput);
     if (resultOutput % 1 != 0){
       resultOutput = Number(resultOutput).toFixed(4);
@@ -156,4 +172,6 @@ function operatorKlick(e) {
     kitty.textContent = "Sabines 'Hello Kitty' Mode"
   };
   });
+
+  
  
