@@ -36,14 +36,6 @@ function calculation(a,b, operator) {
   }
 }
 
-function checkResult (){
-  if (display.textContent != ""){
-  console.log("voll")
-  }else{
-    console.log("leer")
-  }
-}
-
 function removeTransistion(e) {
   if (e.propertyName !== "transform") return;
   this.classList.remove("active");
@@ -67,6 +59,10 @@ function zahlKlick(e) {
 
   function operatorMaus(input) {
     if (input === "="){
+      if (input1.length < 1){
+        input1 = "0";
+        inputNumbers.textContent = `${input2} ${operatorInput} ${input1}`;
+      }
       resultOutput = calculation(input2, input1, operatorInput);
       if (resultOutput % 1 != 0){
         resultOutput = Number(resultOutput).toFixed(4);
@@ -93,7 +89,6 @@ function zahlKlick(e) {
     if (input2 === ""){
       input2 = "0";
     };
-    checkResult();
     input1 = "";
     inputNumbers.textContent = `${input2} ${operatorInput}`;
   }}; 
@@ -105,6 +100,9 @@ function operatorKlick(e) {
   }
   key.classList.add("active");
   if (e.key === "Enter"){
+    document.addEventListener('keypress', function (e) {
+          e.preventDefault();
+  });
     return;
   }
   if (e.key === "Backspace"){
@@ -144,9 +142,10 @@ function operatorKlick(e) {
   window.addEventListener('keydown', operatorKlick);
 
   result.addEventListener('transitionend', () => {
-    if (input1 === ""){
+    if (input1.length < 1){
       input1 = "0";
-    };
+      inputNumbers.textContent = `${input2} ${operatorInput} ${input1}`;
+    }
     resultOutput = calculation(input2, input1, operatorInput);
     if (resultOutput % 1 != 0){
       resultOutput = Number(resultOutput).toFixed(4);
@@ -155,12 +154,13 @@ function operatorKlick(e) {
     if (isNaN(resultOutput) === true){
       inputNumbers.textContent = ""
       display.textContent = "";
+      input1 = "";
+      input2 = "";
     }else{
     display.textContent = `= ${resultOutput}`;
     }
   });
   
- 
   //color-changer
   kitty.addEventListener("click", () => {
   colorOne.forEach(color => color.classList.toggle("styleKitty1"));
