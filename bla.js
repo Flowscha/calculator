@@ -16,6 +16,8 @@ let input2 = "";
 let resultOutput = "";
 let operatorInput = "";
 let didResult = 0;
+let minus = 1;
+let zero = 0;
 
 function calculation(a,b, operator) {
   a = Number(a);
@@ -72,7 +74,13 @@ function zahlKlick(e) {
     }
     key.classList.add("active");
     if (isNaN(key.textContent) === true){
-      input1 += key.textContent;
+      if (key.textContent.includes(".") === true){
+        if (input1.length < 1){
+          input1 = "0.";
+        }else{
+        input1 += ".";
+      }
+      }
     }else{
     input1 += parseInt(key.textContent);
     }
@@ -81,10 +89,24 @@ function zahlKlick(e) {
 
   function zahlMaus(input) {
     if (isNaN(input) === true){
-      input1 += input
+      input = String(input);
+      if (input.includes("-") === true){
+        if (input1.length < 1){
+          input1 = "-";
+        }else{
+          parseInt(input1 *= -1);
+        }
+      }
+      if (input.includes(".") === true){
+        if (input1.length < 1){
+          input1 = "0.";
+        }else{
+        input1 += ".";
+      }
+      }
     }else{
       input1 += parseInt(input);
-    };
+      }
     inputNumbers.textContent = `${input2} ${operatorInput} ${input1}`;
   };
 
